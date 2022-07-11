@@ -17,3 +17,9 @@ footer {
   padding-top: 0;
   text-align: right;
 }
+
+.brand-logo {
+  font-family: 'Marck Script', cursive;
+  margin-left: 20px;
+}
+

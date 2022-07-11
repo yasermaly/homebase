@@ -139,12 +139,12 @@ class AmenityDetail(LoginRequiredMixin, DetailView):
 
 class AmenityCreate(LoginRequiredMixin, CreateView):
     model = Amenity
-    fields = ['name', 'color']
+    fields = ['name']
 
 
 class AmenityUpdate(LoginRequiredMixin, UpdateView):
     model = Amenity
-    fields = ['name', 'color']
+    fields = ['name']
 
 
 class AmenityDelete(LoginRequiredMixin, DeleteView):

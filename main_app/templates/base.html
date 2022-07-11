@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homebase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -25,10 +28,10 @@
     </script>
   </head>
   <body>
-      <nav class="navbar-fixed">
+      <nav class="navbar-fixed indigo">
         <div class="nav-wrapper">
           <ul>
-            <li>
+            <li class="heading">
               <a href="/" class="left brand-logo">Homebase</a>
             </li>
           </ul>
@@ -63,8 +66,8 @@
       </ul>
 
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
-      <div class="right">All Rights Reserved, © 2022 Homebase></div>
+    <footer class="page-footer indigo">
+      <div class="right">All Rights Reserved, © 2022 Homebase</div>
     </footer>
   </body>
 </html>

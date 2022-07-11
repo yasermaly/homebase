@@ -1,15 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Toy Details</h1>
+<h3>Amenity Details</h3>
 
 <div class="card">
-  <a href="{% url 'toys_detail' toy.id %}">
+  <a href="{% url 'amenity_detail' amenity.id %}">
     <div class="card-content">
-      <span class="card-title">A {{toy.name}}</span>
+      <span class="card-title">A {{amenity.name}}</span>
     </div>
     <div class="card-action">
-      <a href="{% url 'amenities_update' toy.id %}">Edit</a>
-      <a href="{% url 'amenities_delete' toy.id %}">Delete</a>
+      <a href="{% url 'amenities_update' amenity.id %}">Edit</a>
+      <a href="{% url 'amenities_delete' amenity.id %}">Delete</a>
     </div>
   </a>
 </div>
