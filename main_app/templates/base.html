@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homebase</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // Side Menu
+        $('.sidenav').sidenav({
+          menuWidth: 300,
+          closeOnClick: true,
+          edge: 'right'
+        });
+        // Light box
+        $('.materialboxed').materialbox();
+      });
+    </script>
+  </head>
+  <body>
+      <nav class="navbar-fixed">
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo">Homebase</a>
+            </li>
+          </ul>
+          <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="waves-effect" href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
+            <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
+            <li><a class="waves-effect" href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+            <li><a class="waves-effect" href="{% url 'amenities_index' %}">View Amenities</a></li>
+            <li><a class="waves-effect" href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a class="waves-effect" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="waves-effect" href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+      <ul id="slide-out" class="sidenav">
+        <li><a class="waves-effect" href="{% url 'about' %}">About</a></li>
+        {% if user.is_authenticated %}
+        <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
+        <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
+        <li><a class="waves-effect" href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+        <li><a class="waves-effect" href="{% url 'amenities_index' %}">View Amenities</a></li>
+        <li><a class="waves-effect" href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+        <li><a class="waves-effect" href="{% url 'signup' %}">Sign Up</a></li>
+        <li><a class="waves-effect" href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
+      </ul>
+
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
+      <div class="right">All Rights Reserved, © 2022 Homebase></div>
+    </footer>
+  </body>
+</html>
