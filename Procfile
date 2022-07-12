@@ -1,1 +1,1 @@
-web: gunicorn homebase-yas.wsgi
+web: gunicorn homebase.wsgi
