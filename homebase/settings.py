@@ -65,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'homebase-yas.wsgi.application'
+WSGI_APPLICATION = 'homebase.wsgi.application'
 
 
 # Database

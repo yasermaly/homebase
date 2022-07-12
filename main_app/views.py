@@ -12,7 +12,7 @@ import boto3
 
 
 S3_BASE_URL = 'http://s3.us-east-1.amazonaws.com/'
-BUCKET = 'homebase-yas'
+BUCKET = 'homebasebucket-yas'
 
 
 def home(request):
@@ -77,7 +77,7 @@ def add_photo(request, home_id):
             photo.save()
         except Exception as error:
           # print an error message
-            print('An error occurred uploading file to S3')
+            print('An error occurred uploading file to S3', error)
             return redirect('detail', home_id=home_id)
         return redirect('detail', home_id=home_id)
 
