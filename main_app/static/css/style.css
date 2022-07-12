@@ -23,3 +23,12 @@ footer {
   margin-left: 20px;
 }
 
+.home-container {
+  width: 100vw;
+  height: 100%;
+  background-image: url("../images/home2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+

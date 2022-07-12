@@ -37,7 +37,6 @@
           </ul>
           <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect" href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
             <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
             <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
@@ -52,7 +51,6 @@
         </div>
       </nav>
       <ul id="slide-out" class="sidenav">
-        <li><a class="waves-effect" href="{% url 'about' %}">About</a></li>
         {% if user.is_authenticated %}
         <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
         <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
