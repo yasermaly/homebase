@@ -24,7 +24,7 @@ enctype="multipart/form-data"
 <input type="file" multiple name="photo-file" />
 <br />
 <br />
-<input type="submit" class="btn" value="Upload Photo" />
+<input type="submit" class="btn blue" value="Upload Photo" />
 </form>
 
 <div class="row">
@@ -47,7 +47,7 @@ enctype="multipart/form-data"
 <hr />
 <div class="row">
   <div class="col s6">
-    <h3>{{ home.address }}'s Amenities</h3>
+    <h4>Included Amenities</h4>
     {% if home.amenities.count %} {% for amenity in home.amenities.all %}
     <div class="card">
       <div class="card-content">
@@ -61,7 +61,7 @@ enctype="multipart/form-data"
     {% endif %}
   </div>
   <div class="col s6">
-    <h3>Available Amenities</h3>
+    <h4>Amenity Options</h4>
     {% if amenities.count %} {% for amenity in amenities.all %}
     <div class="card">
       <div class="card-content">

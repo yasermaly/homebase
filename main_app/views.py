@@ -37,7 +37,7 @@ def homes_detail(request, home_id):
       id__in=home.amenities.all().values_list('id'))
   return render(request, 'homes/detail.html', {
       # Add the amenities to be displayed
-      'amenities': amenities_home_doesnt_have
+      'amenities': amenities_home_doesnt_have, 'home': home
   })
 
 
