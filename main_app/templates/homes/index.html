@@ -2,8 +2,9 @@
 
 <h3>Watchlist</h3>
 
+
 {% for home in homes %}
-<div class="card">
+<div class="card home-index">
   {% comment %} <img class="activator" src="{{photo.url}}"> {% endcomment %}
   <a href="{% url 'detail' home.id %}">
     <div class="card-content">
@@ -15,4 +16,6 @@
     </div>
   </a>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %}
+
+{% endblock %}

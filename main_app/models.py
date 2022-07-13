@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django_google_maps import fields as map_fields
 
 
 
@@ -15,7 +16,7 @@ class Amenity(models.Model):
 
 
 class Home(models.Model):
-  address = models.CharField(max_length=100)
+  address = map_fields.AddressField(max_length=200)
   price = models.CharField(max_length=100)
   beds = models.IntegerField()
   baths = models.IntegerField()
