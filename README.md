@@ -6,10 +6,6 @@ Homebase is a full-stack Real Estate application where users will be able to sig
 
 Python | Django | HTML | Materialize.CSS | Jquery | Google API | Heroku
 
-## ERD
-
-
-
 ## Trello Board
 
 *https://trello.com/b/5jIDoiLJ/homebase
