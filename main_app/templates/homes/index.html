@@ -8,6 +8,11 @@
   {% comment %} <img class="activator" src="{{photo.url}}"> {% endcomment %}
   <a href="{% url 'detail' home.id %}">
     <div class="card-content">
+      {% for photo in home.photo_set.all%}  
+      <img src="{{ photo.url }}" class="responsive-img">
+      {%empty%}
+      <div class="card-panel red-text">No Photos Uploaded</div>
+      {% endfor %}
       <span class="card-title">{{ home.address }}</span>
       <p>Beds: {{ home.beds }}</p>
       <p>Baths: {{ home.baths }}</p>
