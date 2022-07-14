@@ -1,14 +1,87 @@
-{% extends 'base.html' %} {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homebase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-OISFheSMT91glMh98cDZlqoJ3PodyjQ&callback=initMap"></script>
+    <script>
+      $(document).ready(function(){
+        // Side Menu
+        $('.sidenav').sidenav({
+          menuWidth: 300,
+          closeOnClick: true,
+          edge: 'right'
+        });
+        // Light box
+        $('.materialboxed').materialbox();
+      });
+    </script>
+  </head>
+  <body>
+      <nav class="navbar-fixed black">
+        <div class="nav-wrapper">
+          <ul>
+            <li class="heading">
+              <a href="/" class="left brand-logo">Homebase</a>
+            </li>
+          </ul>
+          <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            {% if user.is_authenticated %}
+            <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
+            <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
+            <li><a class="waves-effect" href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+            <li><a class="waves-effect" href="{% url 'amenities_index' %}">View Amenities</a></li>
+            <li><a class="waves-effect" href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a class="waves-effect" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="waves-effect" href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+      <ul id="slide-out" class="sidenav">
+        {% if user.is_authenticated %}
+        <li><a class="waves-effect" href="{% url 'homes_create' %}">Add a Home</a></li>
+        <li><a class="waves-effect" href="{% url 'index' %}">View Watchlist</a></li>
+        <li><a class="waves-effect" href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+        <li><a class="waves-effect" href="{% url 'amenities_index' %}">View Amenities</a></li>
+        <li><a class="waves-effect" href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+        <li><a class="waves-effect" href="{% url 'signup' %}">Sign Up</a></li>
+        <li><a class="waves-effect" href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
+      </ul>
+    
+    <h3 class="amenities-title">Amenities</h3>
+
+    <main class="amenities-index">
+      {% for amenity in object_list %}
+        <div class="card">
+          <a href="{% url 'amenities_detail' amenity.id %}">
+            <div class="card-content">
+              <span class="card-title">{{amenity.name}}</span>
+            </div>
+          </a>
+        </div>
+      {% endfor %} 
+    </main>
+    <footer class="page-footer black">
+      <div class="right">All Rights Reserved, © 2022 Homebase</div>
+    </footer>
+  </body>
+</html>
 
 <h3>Amenities</h3>
 
-{% for amenity in object_list %}
-<div class="card">
-  <a href="{% url 'amenities_detail' amenity.id %}">
-    <div class="card-content">
-      <span class="card-title">{{amenity.name}}</span>
-    </div>
-  </a>
-</div>
-
-{% endfor %} {% endblock%}

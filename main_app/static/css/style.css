@@ -31,10 +31,17 @@ footer {
   background-size: cover;
 }
 
-/* .container {
+.watchlist-title, .amenities-title {
+  display: block;
+  margin-left: 20px;
+}
+
+.home-index, .amenities-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-} */
+  gap: 20px;
+  margin: 20px;
+}
 
 
